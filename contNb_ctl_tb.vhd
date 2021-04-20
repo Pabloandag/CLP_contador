@@ -47,28 +47,60 @@ begin
 	
 	stim_proc: process
 	begin        
-		 wait for half_period*2*5; --wait for 5 clock cycles.
---       data <= "00000001"; -- asc=0 ena=0 rst=1
---         wait for half_period*2*2; --wait for 2 clock cycles.
---         data_rdy <= '1';
---        wait for half_period*2*1; --wait for 1 clock cycles.
---         data_rdy <= '0';
---
---		 wait for half_period*2*10; --wait for 10 clock cycles.
---		 data <= "00000010"; -- asc=0 ena=1 rst=0
---         wait for half_period*2*2; --wait for 2 clock cycles.
---         data_rdy <= '1';
---         wait for half_period*2*1; --wait for 1 clock cycles.
---       data_rdy <= '0';
---
---		 wait for half_period*2*40; --wait for 40 clock cycles.
---		 data <= "00000110"; -- asc=1 ena=1 rst=0
---         wait for half_period*2*2; --wait for 2 clock cycles.
---         data_rdy <= '1';
---         wait for half_period*2*1; --wait for 1 clock cycles.
---         data_rdy <= '0';
---		 wait for half_period*2*40; --wait for 40 clock cycles.
-		 assert false report "Test: OK" severity failure;
+		wait for half_period*2*5; --wait for 5 clock cycles.
+       	data <= "00000001"; -- asc=0 ena=0 rst=1
+        wait for half_period*2*2; --wait for 2 clock cycles.
+      	data_rdy <= '1';
+        wait for half_period*2*1; --wait for 1 clock cycles.
+        data_rdy <= '0';
+
+		wait for half_period*2*10; --wait for 10 clock cycles.
+		data <= "00000010"; -- asc=0 ena=1 rst=0
+        wait for half_period*2*2; --wait for 2 clock cycles.
+        data_rdy <= '1';
+        wait for half_period*2*1; --wait for 1 clock cycles.
+        data_rdy <= '0';
+
+		wait for half_period*2*40; --wait for 40 clock cycles.
+		data <= "00000011"; -- asc=0 ena=1 rst=1
+        wait for half_period*2*2; --wait for 2 clock cycles.
+        data_rdy <= '1';
+        wait for half_period*2*1; --wait for 1 clock cycles.
+        data_rdy <= '0';
+		wait for half_period*2*40; --wait for 40 clock cycles.
+
+		wait for half_period*2*40; --wait for 40 clock cycles.
+		data <= "00000100"; -- asc=1 ena=0 rst=0
+        wait for half_period*2*2; --wait for 2 clock cycles.
+        data_rdy <= '1';
+        wait for half_period*2*1; --wait for 1 clock cycles.
+        data_rdy <= '0';
+		wait for half_period*2*40; --wait for 40 clock cycles.
+
+		wait for half_period*2*40; --wait for 40 clock cycles.
+		data <= "00000101"; -- asc=1 ena=0 rst=1
+        wait for half_period*2*2; --wait for 2 clock cycles.
+        data_rdy <= '1';
+        wait for half_period*2*1; --wait for 1 clock cycles.
+        data_rdy <= '0';
+		wait for half_period*2*40; --wait for 40 clock cycles.
+
+		wait for half_period*2*40; --wait for 40 clock cycles.
+		data <= "00000110"; -- asc=1 ena=1 rst=0
+        wait for half_period*2*2; --wait for 2 clock cycles.
+        data_rdy <= '1';
+        wait for half_period*2*1; --wait for 1 clock cycles.
+        data_rdy <= '0';
+		wait for half_period*2*40; --wait for 40 clock cycles.
+
+		wait for half_period*2*40; --wait for 40 clock cycles.
+		data <= "00000111"; -- asc=1 ena=1 rst=1
+        wait for half_period*2*2; --wait for 2 clock cycles.
+        data_rdy <= '1';
+        wait for half_period*2*1; --wait for 1 clock cycles.
+        data_rdy <= '0';
+		wait for half_period*2*40; --wait for 40 clock cycles.
+		assert false report "Test: OK" severity failure;
    end process;
 
 end;

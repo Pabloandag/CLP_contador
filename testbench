@@ -1,0 +1,15 @@
+#!/bin/bash
+
+program="uart_cont"
+
+echo "Analyzing source"
+ghdl -a "${program}.vhd"
+ghdl -e "${program}"
+
+echo "Analizing testbench"
+ghdl -a "${program}_tb.vhd"
+ghdl -e "${program}_tb"
+echo "Running testbench"
+ghdl -r "${program}_tb" --vcd="${program}_tb.vcd"
+echo "Running gtkwave"
+gtkwave "${program}_tb.vcd"

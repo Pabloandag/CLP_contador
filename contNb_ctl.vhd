@@ -55,7 +55,7 @@ architecture contNb_ctl_arq of contNb_ctl is
 begin
 
 	inst_contNb: contNb
-		generic map(N => 4)
+		generic map(N => N)
 		port map(
 			clk_i => clk_i,
 			rst_i => rst,
@@ -70,16 +70,16 @@ begin
 			if rst = '1' then
 				old_rx_data_rdy <= '0';
 				char_data       <= "00000000";
-				count_o           <= (others => '0');
+				rst <= '0';
 			else
 				-- Capture the value of rx_data_rdy for edge detection
 				old_rx_data_rdy <= rx_data_rdy;
 				-- If rising edge of rx_data_rdy, capture rx_data
 				if (rx_data_rdy = '1' and old_rx_data_rdy = '0') then
 					char_data <= rx_data;
-					--rst <= rx_data(0);
-					--ena <= rx_data(1);
-					--asc <= rx_data(2);
+					rst <= rx_data(0);
+					ena <= rx_data(1);
+					asc <= rx_data(2);
 				end if;
 			end if;	-- if !rst
 		end if;

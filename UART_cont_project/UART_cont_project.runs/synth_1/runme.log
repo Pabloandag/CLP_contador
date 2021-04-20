@@ -1,0 +1,418 @@
+
+*** Running vivado
+    with args -log uart_cont.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source uart_cont.tcl
+
+
+****** Vivado v2018.1 (64-bit)
+  **** SW Build 2188600 on Wed Apr  4 18:40:38 MDT 2018
+  **** IP Build 2185939 on Wed Apr  4 20:55:05 MDT 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source uart_cont.tcl -notrace
+Command: synth_design -top uart_cont -part xc7z010clg400-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z010'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z010'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 14752 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 410.836 ; gain = 98.535
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'uart_cont' [C:/Users/aguir/Documents/CESE/CLP/contador/uart_cont_VIO.vhd:42]
+	Parameter BAUD_RATE bound to: 115200 - type: integer 
+	Parameter CLOCK_RATE bound to: 150000000 - type: integer 
+	Parameter CONT_N bound to: 4 - type: integer 
+	Parameter BAUD_RATE bound to: 115200 - type: integer 
+	Parameter CLOCK_RATE bound to: 150000000 - type: integer 
+INFO: [Synth 8-3491] module 'uart_rx' declared at 'C:/Users/aguir/Documents/CESE/CLP/contador/uart_rx.vhd:38' bound to instance 'uart_rx_i0' of component 'uart_rx' [C:/Users/aguir/Documents/CESE/CLP/contador/uart_cont_VIO.vhd:100]
+INFO: [Synth 8-638] synthesizing module 'uart_rx' [C:/Users/aguir/Documents/CESE/CLP/contador/uart_rx.vhd:58]
+	Parameter BAUD_RATE bound to: 115200 - type: integer 
+	Parameter CLOCK_RATE bound to: 150000000 - type: integer 
+INFO: [Synth 8-3491] module 'meta_harden' declared at 'C:/Users/aguir/Documents/CESE/CLP/contador/meta_harden.vhd:27' bound to instance 'meta_harden_rxd_i0' of component 'meta_harden' [C:/Users/aguir/Documents/CESE/CLP/contador/uart_rx.vhd:108]
+INFO: [Synth 8-638] synthesizing module 'meta_harden' [C:/Users/aguir/Documents/CESE/CLP/contador/meta_harden.vhd:36]
+INFO: [Synth 8-256] done synthesizing module 'meta_harden' (1#1) [C:/Users/aguir/Documents/CESE/CLP/contador/meta_harden.vhd:36]
+	Parameter BAUD_RATE bound to: 115200 - type: integer 
+	Parameter CLOCK_RATE bound to: 150000000 - type: integer 
+INFO: [Synth 8-3491] module 'uart_baud_gen' declared at 'C:/Users/aguir/Documents/CESE/CLP/contador/uart_baud_gen.vhd:36' bound to instance 'uart_baud_gen_rx_i0' of component 'uart_baud_gen' [C:/Users/aguir/Documents/CESE/CLP/contador/uart_rx.vhd:116]
+INFO: [Synth 8-638] synthesizing module 'uart_baud_gen' [C:/Users/aguir/Documents/CESE/CLP/contador/uart_baud_gen.vhd:50]
+	Parameter BAUD_RATE bound to: 115200 - type: integer 
+	Parameter CLOCK_RATE bound to: 150000000 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'uart_baud_gen' (2#1) [C:/Users/aguir/Documents/CESE/CLP/contador/uart_baud_gen.vhd:50]
+INFO: [Synth 8-3491] module 'uart_rx_ctl' declared at 'C:/Users/aguir/Documents/CESE/CLP/contador/uart_rx_ctl.vhd:53' bound to instance 'uart_rx_ctl_i0' of component 'uart_rx_ctl' [C:/Users/aguir/Documents/CESE/CLP/contador/uart_rx.vhd:127]
+INFO: [Synth 8-638] synthesizing module 'uart_rx_ctl' [C:/Users/aguir/Documents/CESE/CLP/contador/uart_rx_ctl.vhd:70]
+INFO: [Synth 8-226] default block is never used [C:/Users/aguir/Documents/CESE/CLP/contador/uart_rx_ctl.vhd:95]
+INFO: [Synth 8-256] done synthesizing module 'uart_rx_ctl' (3#1) [C:/Users/aguir/Documents/CESE/CLP/contador/uart_rx_ctl.vhd:70]
+INFO: [Synth 8-256] done synthesizing module 'uart_rx' (4#1) [C:/Users/aguir/Documents/CESE/CLP/contador/uart_rx.vhd:58]
+	Parameter N bound to: 4 - type: integer 
+INFO: [Synth 8-3491] module 'contNb_ctl' declared at 'C:/Users/aguir/Documents/CESE/CLP/contador/contNb_ctl.vhd:27' bound to instance 'contNb_ctl_i0' of component 'contNb_ctl' [C:/Users/aguir/Documents/CESE/CLP/contador/uart_cont_VIO.vhd:117]
+INFO: [Synth 8-638] synthesizing module 'contNb_ctl' [C:/Users/aguir/Documents/CESE/CLP/contador/contNb_ctl.vhd:39]
+	Parameter N bound to: 4 - type: integer 
+	Parameter N bound to: 4 - type: integer 
+INFO: [Synth 8-3491] module 'contNb' declared at 'C:/Users/aguir/Documents/CESE/CLP/contador/contNb.vhd:5' bound to instance 'contNb_i0' of component 'contNb' [C:/Users/aguir/Documents/CESE/CLP/contador/contNb_ctl.vhd:58]
+INFO: [Synth 8-638] synthesizing module 'contNb' [C:/Users/aguir/Documents/CESE/CLP/contador/contNb.vhd:16]
+	Parameter N bound to: 4 - type: integer 
+WARNING: [Synth 8-614] signal 'aux' is read in the process but is not in the sensitivity list [C:/Users/aguir/Documents/CESE/CLP/contador/contNb.vhd:20]
+INFO: [Synth 8-256] done synthesizing module 'contNb' (5#1) [C:/Users/aguir/Documents/CESE/CLP/contador/contNb.vhd:16]
+WARNING: [Synth 8-6014] Unused sequential element char_data_reg was removed.  [C:/Users/aguir/Documents/CESE/CLP/contador/contNb_ctl.vhd:73]
+INFO: [Synth 8-256] done synthesizing module 'contNb_ctl' (6#1) [C:/Users/aguir/Documents/CESE/CLP/contador/contNb_ctl.vhd:39]
+INFO: [Synth 8-638] synthesizing module 'gen_ena' [C:/Users/aguir/Documents/CESE/CLP/contador/gen_ena.vhd:15]
+	Parameter N bound to: 150000000 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'gen_ena' (7#1) [C:/Users/aguir/Documents/CESE/CLP/contador/gen_ena.vhd:15]
+INFO: [Synth 8-3491] module 'vio_0' declared at 'C:/Users/aguir/Documents/CESE/CLP/contador/UART_cont_project/UART_cont_project.runs/synth_1/.Xil/Vivado-16632-DESKTOP-JPVMG1I/realtime/vio_0_stub.vhdl:5' bound to instance 'VIO_i0' of component 'vio_0' [C:/Users/aguir/Documents/CESE/CLP/contador/uart_cont_VIO.vhd:136]
+INFO: [Synth 8-638] synthesizing module 'vio_0' [C:/Users/aguir/Documents/CESE/CLP/contador/UART_cont_project/UART_cont_project.runs/synth_1/.Xil/Vivado-16632-DESKTOP-JPVMG1I/realtime/vio_0_stub.vhdl:16]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'contNb_ctl_i0'. This will prevent further optimization [C:/Users/aguir/Documents/CESE/CLP/contador/uart_cont_VIO.vhd:117]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'uart_rx_i0'. This will prevent further optimization [C:/Users/aguir/Documents/CESE/CLP/contador/uart_cont_VIO.vhd:100]
+INFO: [Synth 8-256] done synthesizing module 'uart_cont' (8#1) [C:/Users/aguir/Documents/CESE/CLP/contador/uart_cont_VIO.vhd:42]
+WARNING: [Synth 8-3331] design contNb_ctl has unconnected port rx_data[7]
+WARNING: [Synth 8-3331] design contNb_ctl has unconnected port rx_data[6]
+WARNING: [Synth 8-3331] design contNb_ctl has unconnected port rx_data[5]
+WARNING: [Synth 8-3331] design contNb_ctl has unconnected port rx_data[4]
+WARNING: [Synth 8-3331] design contNb_ctl has unconnected port rx_data[3]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 466.012 ; gain = 153.711
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 466.012 ; gain = 153.711
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 466.012 ; gain = 153.711
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7z010clg400-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [c:/Users/aguir/Documents/CESE/CLP/contador/UART_cont_project/UART_cont_project.srcs/sources_1/ip/vio_0/vio_0/vio_0_in_context.xdc] for cell 'VIO_i0'
+Finished Parsing XDC File [c:/Users/aguir/Documents/CESE/CLP/contador/UART_cont_project/UART_cont_project.srcs/sources_1/ip/vio_0/vio_0/vio_0_in_context.xdc] for cell 'VIO_i0'
+Parsing XDC File [C:/Users/aguir/Documents/CESE/CLP/contador/Arty-Z7-10-Master.xdc]
+Finished Parsing XDC File [C:/Users/aguir/Documents/CESE/CLP/contador/Arty-Z7-10-Master.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/aguir/Documents/CESE/CLP/contador/Arty-Z7-10-Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/uart_cont_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/uart_cont_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 795.938 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 795.938 ; gain = 483.637
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z010clg400-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 795.938 ; gain = 483.637
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property DONT_TOUCH = true for VIO_i0. (constraint file  auto generated constraint, line ).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 795.938 ; gain = 483.637
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5546] ROM "baud_x16_en_reg" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'uart_rx_ctl'
+INFO: [Synth 8-5544] ROM "over_sample_cnt_done" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "bit_cnt_done" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "bit_cnt" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "bit_cnt" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/aguir/Documents/CESE/CLP/contador/contNb.vhd:28]
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 iSTATE1 |                               00 |                               00
+                  iSTATE |                               01 |                               01
+                 iSTATE0 |                               10 |                               10
+                 iSTATE2 |                               11 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'uart_rx_ctl'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 795.938 ; gain = 483.637
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     28 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 1     
+	   2 Input      4 Bit       Adders := 2     
+	   2 Input      3 Bit       Adders := 1     
++---Registers : 
+	                8 Bit    Registers := 1     
+	                7 Bit    Registers := 1     
+	                4 Bit    Registers := 2     
+	                3 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 10    
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 2     
+	   2 Input      4 Bit        Muxes := 2     
+	   4 Input      2 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 3     
+	   6 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 11    
+	   4 Input      1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module meta_harden 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 2     
+Module uart_baud_gen 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      7 Bit       Adders := 1     
++---Registers : 
+	                7 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module uart_rx_ctl 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      4 Bit       Adders := 1     
+	   2 Input      3 Bit       Adders := 1     
++---Registers : 
+	                8 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
+	                3 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 2     
+	   2 Input      4 Bit        Muxes := 2     
+	   4 Input      2 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 2     
+	   6 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 9     
+	   4 Input      1 Bit        Muxes := 1     
+Module contNb 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      4 Bit       Adders := 1     
++---Registers : 
+	                4 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      2 Bit        Muxes := 1     
+Module contNb_ctl 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 4     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module gen_ena 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     28 Bit       Adders := 1     
++---Registers : 
+	                1 Bit    Registers := 1     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 80 (col length:40)
+BRAMs: 120 (col length: RAMB18 40 RAMB36 20)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+INFO: [Synth 8-5546] ROM "uart_baud_gen_rx_i0/baud_x16_en_reg" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-3331] design contNb_ctl has unconnected port rx_data[7]
+WARNING: [Synth 8-3331] design contNb_ctl has unconnected port rx_data[6]
+WARNING: [Synth 8-3331] design contNb_ctl has unconnected port rx_data[5]
+WARNING: [Synth 8-3331] design contNb_ctl has unconnected port rx_data[4]
+WARNING: [Synth 8-3331] design contNb_ctl has unconnected port rx_data[3]
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 795.938 ; gain = 483.637
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:25 ; elapsed = 00:00:29 . Memory (MB): peak = 797.980 ; gain = 485.680
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:29 . Memory (MB): peak = 798.055 ; gain = 485.754
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:25 ; elapsed = 00:00:29 . Memory (MB): peak = 817.684 ; gain = 505.383
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:26 ; elapsed = 00:00:30 . Memory (MB): peak = 817.684 ; gain = 505.383
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:26 ; elapsed = 00:00:30 . Memory (MB): peak = 817.684 ; gain = 505.383
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:26 ; elapsed = 00:00:30 . Memory (MB): peak = 817.684 ; gain = 505.383
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:26 ; elapsed = 00:00:30 . Memory (MB): peak = 817.684 ; gain = 505.383
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:26 ; elapsed = 00:00:30 . Memory (MB): peak = 817.684 ; gain = 505.383
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:26 ; elapsed = 00:00:30 . Memory (MB): peak = 817.684 ; gain = 505.383
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+--------------+----------+
+|      |BlackBox name |Instances |
++------+--------------+----------+
+|1     |vio_0         |         1|
++------+--------------+----------+
+
+Report Cell Usage: 
++------+-------------+------+
+|      |Cell         |Count |
++------+-------------+------+
+|1     |vio_0_bbox_0 |     1|
+|2     |BUFG         |     1|
+|3     |CARRY4       |    14|
+|4     |LUT1         |     3|
+|5     |LUT2         |     4|
+|6     |LUT3         |     6|
+|7     |LUT4         |     7|
+|8     |LUT5         |    33|
+|9     |LUT6         |    15|
+|10    |FDRE         |    66|
+|11    |FDSE         |     2|
+|12    |IBUF         |     2|
++------+-------------+------+
+
+Report Instance Areas: 
++------+------------------------+--------------+------+
+|      |Instance                |Module        |Cells |
++------+------------------------+--------------+------+
+|1     |top                     |              |   155|
+|2     |  uart_rx_i0            |uart_rx       |    81|
+|3     |    meta_harden_rxd_i0  |meta_harden   |     2|
+|4     |    uart_baud_gen_rx_i0 |uart_baud_gen |    19|
+|5     |    uart_rx_ctl_i0      |uart_rx_ctl   |    60|
+|6     |  contNb_ctl_i0         |contNb_ctl    |    17|
+|7     |    contNb_i0           |contNb        |     9|
+|8     |  gen_ena_i0            |gen_ena       |    52|
++------+------------------------+--------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:26 ; elapsed = 00:00:30 . Memory (MB): peak = 817.684 ; gain = 505.383
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 5 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:15 ; elapsed = 00:00:22 . Memory (MB): peak = 817.684 ; gain = 175.457
+Synthesis Optimization Complete : Time (s): cpu = 00:00:26 ; elapsed = 00:00:30 . Memory (MB): peak = 817.684 ; gain = 505.383
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 16 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+49 Infos, 12 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:28 ; elapsed = 00:00:33 . Memory (MB): peak = 817.684 ; gain = 514.047
+INFO: [Common 17-1381] The checkpoint 'C:/Users/aguir/Documents/CESE/CLP/contador/UART_cont_project/UART_cont_project.runs/synth_1/uart_cont.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file uart_cont_utilization_synth.rpt -pb uart_cont_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.016 . Memory (MB): peak = 817.684 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Tue Apr 20 16:26:58 2021...

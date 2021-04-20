@@ -28,6 +28,7 @@ entity contNb_ctl is
 	generic(N:natural :=4);
 	port(
 		clk_i:			in std_logic;						-- Clock input
+		ena_i:          in std_logic;                       -- External enable
 		rx_data:		in std_logic_vector(7 downto 0);	-- 8 bit data input
 		rx_data_rdy:	in std_logic;						-- valid when rx_data_rdy is asserted
 		count_o:		out std_logic_vector(N-1 downto 0)	-- The counter outputs
@@ -50,11 +51,11 @@ architecture contNb_ctl_arq of contNb_ctl is
 
 	signal old_rx_data_rdy: std_logic;
 	signal char_data: std_logic_vector(7 downto 0);
-	signal rst,asc,ena: std_logic;
+	signal rst,asc,ena,aux: std_logic;
 
 begin
 
-	inst_contNb: contNb
+	contNb_i0: contNb
 		generic map(N => N)
 		port map(
 			clk_i => clk_i,
@@ -78,11 +79,13 @@ begin
 				if (rx_data_rdy = '1' and old_rx_data_rdy = '0') then
 					char_data <= rx_data;
 					rst <= rx_data(0);
-					ena <= rx_data(1);
+					aux <= rx_data(1);
 					asc <= rx_data(2);
 				end if;
 			end if;	-- if !rst
 		end if;
 	end process;
+	
+    ena <= aux and ena_i;
 end;
 

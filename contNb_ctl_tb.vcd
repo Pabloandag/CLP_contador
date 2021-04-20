@@ -1,0 +1,32 @@
+$date
+  Mon Apr 19 23:07:43 2021
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$var reg 1 ! clock $end
+$var reg 4 " cont_out[3:0] $end
+$var reg 1 # data_rdy $end
+$var reg 8 $ data[7:0] $end
+$scope module dut $end
+$var reg 1 % clk_i $end
+$var reg 8 & rx_data[7:0] $end
+$var reg 1 ' rx_data_rdy $end
+$var reg 4 ( count_o[3:0] $end
+$var reg 1 ) old_rx_data_rdy $end
+$var reg 8 * char_data[7:0] $end
+$var reg 1 + rst $end
+$var reg 1 , asc $end
+$var reg 1 - ena $end
+$scope module inst_contnb $end
+$var reg 1 . clk_i $end
+$var reg 1 / rst_i $end
+$var reg 1 0 ena_i $end
+$var reg 1 1 asc_i $end
+$var reg 4 2 q[3:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end

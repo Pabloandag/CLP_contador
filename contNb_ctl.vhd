@@ -8,7 +8,7 @@
 --  Children : None
 --
 --  Description: 
---     LED output generator
+--     Counter output generator
 --
 --  Parameters:
 --     None
@@ -50,8 +50,8 @@ architecture contNb_ctl_arq of contNb_ctl is
 	end component;
 
 	signal old_rx_data_rdy: std_logic;
-	signal char_data: std_logic_vector(7 downto 0);
-	signal rst,asc,ena,aux: std_logic;
+	signal rst,asc,ena: std_logic;
+	signal aux: std_logic := '0';
 
 begin
 
@@ -70,14 +70,12 @@ begin
 		if rising_edge(clk_i) then
 			if rst = '1' then
 				old_rx_data_rdy <= '0';
-				char_data       <= "00000000";
 				rst <= '0';
 			else
 				-- Capture the value of rx_data_rdy for edge detection
 				old_rx_data_rdy <= rx_data_rdy;
 				-- If rising edge of rx_data_rdy, capture rx_data
 				if (rx_data_rdy = '1' and old_rx_data_rdy = '0') then
-					char_data <= rx_data;
 					rst <= rx_data(0);
 					aux <= rx_data(1);
 					asc <= rx_data(2);

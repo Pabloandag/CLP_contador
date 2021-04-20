@@ -26,12 +26,13 @@ use IEEE.numeric_std.all;
 entity uart_cont is
 	generic(
 		BAUD_RATE: integer := 115200;   
-		CLOCK_RATE: integer := 50E6;
+		CLOCK_RATE: integer := 150E6;
 		CONT_N: integer := 4
 	);
 	port(
 		-- Write side inputs
-		clk_pin:	in std_logic;      					-- Clock input (from pin)
+		clk_pin:	in std_logic;
+		ena_pin:	in std_logic;      					-- Clock input (from pin)
 		rst_pin: 	in std_logic;      					-- Active HIGH reset (from pin)
 		rxd_pin: 	in std_logic;      					-- RS232 RXD pin - directly from pin
 		cont_pins: 	out std_logic_vector(CONT_N-1 downto 0)    -- 8 LED outputs
@@ -43,7 +44,7 @@ architecture uart_cont_arq of uart_cont is
 	component uart_rx is
 		generic(
 			BAUD_RATE: integer := 115200; 	-- Baud rate
-			CLOCK_RATE: integer := 50E6
+			CLOCK_RATE: integer := 150E6
 		);
 
 		port(
@@ -64,7 +65,8 @@ architecture uart_cont_arq of uart_cont is
 	component contNb_ctl is
 		generic(N:natural :=4);
 		port(
-			clk_i:			in std_logic;						-- Clock input
+			clk_i:			in std_logic;
+			ena_i:			in std_logic;						-- Clock input
 			rx_data:		in std_logic_vector(7 downto 0);	-- 8 bit data input
 			rx_data_rdy:	in std_logic;						-- valid when rx_data_rdy is asserted
 			count_o:		out std_logic_vector(N-1 downto 0)	-- The counter outputs
@@ -98,6 +100,7 @@ begin
 		generic map(N => CONT_N)
 		port map(
 			clk_i     	=> clk_pin,
+			ena_i		=> ena_pin,
 			rx_data		=> rx_data,
 			rx_data_rdy => rx_data_rdy,
 			count_o       => cont_pins

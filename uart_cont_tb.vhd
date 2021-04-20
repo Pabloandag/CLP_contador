@@ -10,12 +10,13 @@ architecture uart_cont_tb_arq of uart_cont_tb is
     component uart_cont is
         generic(
             BAUD_RATE: integer := 115200;   
-            CLOCK_RATE: integer := 50E6;
+            CLOCK_RATE: integer := 150E6;
             CONT_N: integer := 4
         );
         port(
             -- Write side inputs
             clk_pin:	in std_logic;      					-- Clock input (from pin)
+            ena_pin:	in std_logic;
             rst_pin: 	in std_logic;      					-- Active HIGH reset (from pin)
             rxd_pin: 	in std_logic;      					-- RS232 RXD pin - directly from pin
             cont_pins: 	out std_logic_vector(CONT_N-1 downto 0)    -- 8 LED outputs
@@ -36,6 +37,7 @@ architecture uart_cont_tb_arq of uart_cont_tb is
     -- Signals
 
 	signal clock : std_logic := '1';
+    signal ena : std_logic := '1';
 	signal cont_out: std_logic_vector(CONT_N_used-1 downto 0);
     signal rst: std_logic := '0';
     signal rxd: std_logic := '0';
@@ -69,6 +71,7 @@ begin
                     CONT_N      => CONT_N_used)
 		port map(
 			clk_pin => clock,
+            ena_pin => ena,
 			rst_pin => rst,
 			rxd_pin => rxd,
 			cont_pins  => cont_out

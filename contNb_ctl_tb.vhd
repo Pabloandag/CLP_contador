@@ -10,7 +10,8 @@ architecture contNb_ctl_tb_arq of contNb_ctl_tb is
     component contNb_ctl is
         generic(N:natural :=4);
         port(
-            clk_i:			in std_logic;						-- Clock input
+            clk_i:			in std_logic;
+			ena_i:          in std_logic;   						-- Clock input
             rx_data:		in std_logic_vector(7 downto 0);	-- 8 bit data input
             rx_data_rdy:	in std_logic;						-- valid when rx_data_rdy is asserted
             count_o:		out std_logic_vector(N-1 downto 0)	-- The counter outputs
@@ -20,6 +21,7 @@ architecture contNb_ctl_tb_arq of contNb_ctl_tb is
 	constant N_used: integer :=4;
 	constant half_period: time := 1 ps;--10 ns;
 
+    signal ena: std_logic := '1';
 	signal clock : std_logic := '1';
 	signal cont_out: std_logic_vector(N_used-1 downto 0);
     signal data_rdy: std_logic := '0';
@@ -31,11 +33,12 @@ begin
 		generic map(N => N_used)
 		port map(
 			clk_i => clock,
+			ena_i => ena,
 			rx_data => data,
 			rx_data_rdy => data_rdy,
 			count_o  => cont_out
 		);
-
+	
 
 	clk_process :process
 	begin

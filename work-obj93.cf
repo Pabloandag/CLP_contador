@@ -1,31 +1,31 @@
 v 4
-file . "uart_rx_ctl.vhd" "7da8645e835912d47840581f926960d95d9c6a59" "20210420145528.430":
-  entity uart_rx_ctl at 49( 1868) + 0 on 139;
-  architecture uart_rx_ctl_arq of uart_rx_ctl at 70( 2494) + 0 on 140;
-file . "meta_harden.vhd" "b67154f7131a9811bc9bf6c4ac4833da4199a2c8" "20210420145413.502":
-  entity meta_harden at 24( 639) + 0 on 135;
-  architecture meta_harden_arq of meta_harden at 36( 960) + 0 on 136;
-file . "uart_cont_tb.vhd" "6282a46ea8b5b08c360cd7fab0ea839d8e4e0104" "20210420173933.408":
-  entity uart_cont_tb at 1( 0) + 0 on 227;
-  architecture uart_cont_tb_arq of uart_cont_tb at 8( 99) + 0 on 228;
-file . "uart_cont.vhd" "c75952eab4e69bd5432b93c56a939a4f21f2df3d" "20210420173933.325":
-  entity uart_cont at 22( 394) + 0 on 225;
-  architecture uart_cont_arq of uart_cont at 41( 903) + 0 on 226;
-file . "contNb_ctl.vhd" "cad2e1dd003dff710e9c454ad4fcc44612539bf9" "20210420134356.955":
-  entity contnb_ctl at 24( 381) + 0 on 107;
-  architecture contnb_ctl_arq of contnb_ctl at 38( 741) + 0 on 108;
-file . "contNb_tb.vhd" "c24a52d6cef7f5f7bc34fe8621bff854f05d93af" "20210420133557.057":
-  entity contnb_tb at 1( 0) + 0 on 97;
-  architecture contnb_tb_arq of contnb_tb at 8( 96) + 0 on 98;
-file . "contNb.vhd" "3464801be35566d727c7a9c4f6926e4807a3250d" "20210420133556.988":
-  entity contnb at 1( 0) + 0 on 95;
-  architecture contnb_arq of contnb at 16( 270) + 0 on 96;
-file . "contNb_ctl_tb.vhd" "ba5e47fb346a017bc4d9e03b55f9e8ede70f08fe" "20210420134357.026":
-  entity contnb_ctl_tb at 1( 0) + 0 on 109;
-  architecture contnb_ctl_tb_arq of contnb_ctl_tb at 8( 100) + 0 on 110;
-file . "uart_rx.vhd" "c734aa9a29ddc6fb2ad84397b532cdefb74ded39" "20210420145347.569":
-  entity uart_rx at 34( 1165) + 0 on 133;
-  architecture uart_rx_arq of uart_rx at 58( 1927) + 0 on 134;
 file . "uart_baud_gen.vhd" "096d35c76614bef891b1e950d788117471c09019" "20210420145453.665":
   entity uart_baud_gen at 32( 956) + 0 on 137;
   architecture uart_baud_gen_arq of uart_baud_gen at 50( 1361) + 0 on 138;
+file . "uart_rx.vhd" "c734aa9a29ddc6fb2ad84397b532cdefb74ded39" "20210420145347.569":
+  entity uart_rx at 34( 1165) + 0 on 133;
+  architecture uart_rx_arq of uart_rx at 58( 1927) + 0 on 134;
+file . "contNb_ctl_tb.vhd" "3e97aff8baece2cc6841970db5c13e1a4560a702" "20210420200027.971":
+  entity contnb_ctl_tb at 1( 0) + 0 on 253;
+  architecture contnb_ctl_tb_arq of contnb_ctl_tb at 8( 100) + 0 on 254;
+file . "contNb.vhd" "3464801be35566d727c7a9c4f6926e4807a3250d" "20210420133556.988":
+  entity contnb at 1( 0) + 0 on 95;
+  architecture contnb_arq of contnb at 16( 270) + 0 on 96;
+file . "contNb_tb.vhd" "c24a52d6cef7f5f7bc34fe8621bff854f05d93af" "20210420133557.057":
+  entity contnb_tb at 1( 0) + 0 on 97;
+  architecture contnb_tb_arq of contnb_tb at 8( 96) + 0 on 98;
+file . "contNb_ctl.vhd" "e2e3a990793e97b6e41e42f4da5d07eeb61b756a" "20210420200027.899":
+  entity contnb_ctl at 24( 385) + 0 on 251;
+  architecture contnb_ctl_arq of contnb_ctl at 39( 818) + 0 on 252;
+file . "uart_cont.vhd" "6d46c81782caf4f3ae5621371dcf5c5c3f6bb59f" "20210420201109.474":
+  entity uart_cont at 22( 411) + 0 on 263;
+  architecture uart_cont_arq of uart_cont at 42( 946) + 0 on 264;
+file . "uart_cont_tb.vhd" "5e0a71b1e2d3d15023fb24a377039631fd7e314c" "20210420201109.558":
+  entity uart_cont_tb at 1( 0) + 0 on 265;
+  architecture uart_cont_tb_arq of uart_cont_tb at 8( 99) + 0 on 266;
+file . "meta_harden.vhd" "b67154f7131a9811bc9bf6c4ac4833da4199a2c8" "20210420145413.502":
+  entity meta_harden at 24( 639) + 0 on 135;
+  architecture meta_harden_arq of meta_harden at 36( 960) + 0 on 136;
+file . "uart_rx_ctl.vhd" "7da8645e835912d47840581f926960d95d9c6a59" "20210420145528.430":
+  entity uart_rx_ctl at 49( 1868) + 0 on 139;
+  architecture uart_rx_ctl_arq of uart_rx_ctl at 70( 2494) + 0 on 140;

@@ -22,17 +22,45 @@ architecture uart_cont_tb_arq of uart_cont_tb is
         );
     end component;
 
+    -- UART config
     constant BAUD_RATE_used: integer :=115200;
-    constant CLOCK_RATE_used: integer :=50E6;
+    constant BIT_PERIOD : time := 8680 ns;
+
+    -- Counter config
     constant CONT_N_used: integer :=4;
-	constant half_period: time := 10 ns;
+    
+    -- CLOCK config
+    constant CLOCK_RATE_used: integer :=50E6;
+	constant HALF_PERIOD: time := 10 ns;    --1/(2*CLOCK_RATE)
+
+    -- Signals
 
 	signal clock : std_logic := '1';
 	signal cont_out: std_logic_vector(CONT_N_used-1 downto 0);
     signal rst: std_logic := '0';
     signal rxd: std_logic := '0';
-    ---signal data: std_logic_vector(7 downto 0);
-	
+
+    -- Low-level byte-write
+    procedure UART_WRITE_BYTE (
+                                data_i       : in  std_logic_vector(7 downto 0);
+                                signal serial_o : out std_logic) is
+    begin
+ 
+        -- Send Start Bit
+        serial_o <= '0';
+        wait for BIT_PERIOD;
+
+        -- Send Data Byte
+        for ii in 0 to 7 loop
+            serial_o <= data_i(ii);
+            wait for BIT_PERIOD;
+        end loop;  -- ii
+ 
+        -- Send Stop Bit
+        serial_o <= '1';
+        wait for BIT_PERIOD;
+    end UART_WRITE_BYTE;
+
 begin
 
 	DUT: uart_cont
@@ -50,25 +78,51 @@ begin
 	clk_process :process
 	begin
 		clock <= '0';
-		wait for half_period;  --for half of clock period clk stays at '0'.
+		wait for HALF_PERIOD;  --for half of clock period clk stays at '0'.
 		clock <= '1';
-		wait for half_period;  --for next half of clock period clk stays at '1'.
+		wait for HALF_PERIOD;  --for next half of clock period clk stays at '1'.
 	end process;
 	
 	stim_proc: process
-	begin        
-		wait for half_period*2*5; --wait for 5 clock cycles.
+	begin
+        -- reset        
+		wait for HALF_PERIOD*2*5; --wait for 5 clock cycles.
        	rst <= '1';
         rxd <= '1';
-        wait for half_period*2*1;
+        wait for HALF_PERIOD*2*1;
         rst <= '0';
-        wait for half_period*2*10; --wait for 10 clock cycles.
-      	rxd <= '0';
-        
-        wait for half_period*2*10; --wait for 1 clock cycles.
-        rxd <= '1';
 
-		wait for half_period*2*300; --wait for 40 clock cycles.
+        -- Write ASC=0 ENA=0 RST=0 
+        UART_WRITE_BYTE(X"00",rxd);
+        wait for HALF_PERIOD*2*30; -- wait 30 clock cycles
+        
+        -- Write ASC=0 ENA=0 RST=1 
+        UART_WRITE_BYTE(X"01",rxd);
+        wait for HALF_PERIOD*2*30; -- wait 30 clock cycles
+
+        -- Write ASC=0 ENA=1 RST=0 
+        UART_WRITE_BYTE(X"02",rxd);
+        wait for HALF_PERIOD*2*30; -- wait 30 clock cycles
+
+        -- Write ASC=0 ENA=1 RST=1 
+        UART_WRITE_BYTE(X"03",rxd);
+        wait for HALF_PERIOD*2*30; -- wait 30 clock cycles
+
+        -- Write ASC=1 ENA=0 RST=0 
+        UART_WRITE_BYTE(X"04",rxd);
+        wait for HALF_PERIOD*2*30; -- wait 30 clock cycles
+
+        -- Write ASC=1 ENA=0 RST=1 
+        UART_WRITE_BYTE(X"05",rxd);
+        wait for HALF_PERIOD*2*30; -- wait 30 clock cycles
+
+        -- Write ASC=1 ENA=1 RST=0 
+        UART_WRITE_BYTE(X"06",rxd);
+        wait for HALF_PERIOD*2*30; -- wait 30 clock cycles
+
+        -- Write ASC=1 ENA=1 RST=1 
+        UART_WRITE_BYTE(X"07",rxd);
+        wait for HALF_PERIOD*2*30; -- wait 30 clock cycles
 		assert false report "Test: OK" severity failure;
    end process;
 
